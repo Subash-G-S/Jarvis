@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.env
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Build files
+build/
+dist/
+*.spec
+
+# Logs
+*.log
+
+# Screenshots
+screenshots/
+
+# Temporary files
+temp/
+tmp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# SQLite
+*.db
+
+# Environment variables
+.env
+
+# Audio files
+*.mp3
+*.wav
+
+# Generated cache
+cache/
