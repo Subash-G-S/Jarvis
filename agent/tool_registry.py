@@ -7,6 +7,18 @@ from tools.file_tools import (
     delete_file,
     rename_file
 )
+from tools.brightness_tools import (
+    get_brightness,
+    set_brightness,
+    increase_brightness,
+    decrease_brightness
+)
+from tools.volume_tools import (
+    volume_up,
+    volume_down,
+    mute_volume,
+    unmute_volume
+)
 from tools.clipboard_tools import (
     read_clipboard,
     copy_to_clipboard,
@@ -18,6 +30,11 @@ from tools.window_tools import (
     maximize_window,
     activate_window,
     close_active_window
+)
+from tools.media_tools import (
+    play_pause,
+    next_track,
+    previous_track
 )
 from tools.screenshot_tools import (
     take_screenshot,
@@ -182,6 +199,70 @@ TOOLS = {
 "get_clipboard_history": {
     "function": get_clipboard_history,
     "description": "Show clipboard history",
+    "parameters": []
+},
+
+"volume_up": {
+    "function": volume_up,
+    "description": "Increase volume",
+    "parameters": []
+},
+
+"volume_down": {
+    "function": volume_down,
+    "description": "Decrease volume",
+    "parameters": []
+},
+
+"mute_volume": {
+    "function": mute_volume,
+    "description": "Mute system volume",
+    "parameters": []
+},
+
+"unmute_volume": {
+    "function": unmute_volume,
+    "description": "Unmute system volume",
+    "parameters": []
+},
+"get_brightness": {
+    "function": get_brightness,
+    "description": "Get current screen brightness",
+    "parameters": []
+},
+
+"set_brightness": {
+    "function": set_brightness,
+    "description": "Set brightness percentage",
+    "parameters": ["percent"]
+},
+
+"increase_brightness": {
+    "function": increase_brightness,
+    "description": "Increase screen brightness",
+    "parameters": []
+},
+
+"decrease_brightness": {
+    "function": decrease_brightness,
+    "description": "Decrease screen brightness",
+    "parameters": []
+},
+"play_pause": {
+    "function": play_pause,
+    "description": "Play or pause media",
+    "parameters": []
+},
+
+"next_track": {
+    "function": next_track,
+    "description": "Play next song",
+    "parameters": []
+},
+
+"previous_track": {
+    "function": previous_track,
+    "description": "Play previous song",
     "parameters": []
 },
 
