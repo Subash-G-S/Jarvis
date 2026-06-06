@@ -7,6 +7,18 @@ from tools.file_tools import (
     delete_file,
     rename_file
 )
+from tools.clipboard_tools import (
+    read_clipboard,
+    copy_to_clipboard,
+    clear_clipboard,
+    get_clipboard_history
+)
+from tools.window_tools import (
+    minimize_window,
+    maximize_window,
+    activate_window,
+    close_active_window
+)
 from tools.screenshot_tools import (
     take_screenshot,
     open_latest_screenshot,
@@ -126,6 +138,53 @@ TOOLS = {
     "description": "Take a screenshot after delay",
     "parameters": ["seconds"]
 },
+"minimize_window": {
+    "function": minimize_window,
+    "description": "Minimize a window",
+    "parameters": ["window_name"]
+},
+
+"maximize_window": {
+    "function": maximize_window,
+    "description": "Maximize a window",
+    "parameters": ["window_name"]
+},
+
+"activate_window": {
+    "function": activate_window,
+    "description": "Switch focus to an already open window",
+    "parameters": ["window_name"]
+},
+
+"close_active_window": {
+    "function": close_active_window,
+    "description": "Close current active window",
+    "parameters": []
+},
+"read_clipboard": {
+    "function": read_clipboard,
+    "description": "Read current clipboard text",
+    "parameters": []
+},
+
+"copy_to_clipboard": {
+    "function": copy_to_clipboard,
+    "description": "Copy text to clipboard",
+    "parameters": ["text"]
+},
+
+"clear_clipboard": {
+    "function": clear_clipboard,
+    "description": "Clear clipboard",
+    "parameters": []
+},
+
+"get_clipboard_history": {
+    "function": get_clipboard_history,
+    "description": "Show clipboard history",
+    "parameters": []
+},
+
 
 }
 
@@ -218,6 +277,7 @@ Examples:
   "tool":"take_screenshot",
   "parameters":{}
 }
+
 Available tools:
 
 """
