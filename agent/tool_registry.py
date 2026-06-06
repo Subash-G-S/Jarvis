@@ -7,6 +7,11 @@ from tools.file_tools import (
     delete_file,
     rename_file
 )
+from tools.screenshot_tools import (
+    take_screenshot,
+    open_latest_screenshot,
+    timed_screenshot
+)
 from tools.system_tools import get_system_info
 from tools.memory_tools import open_last_file
 from tools.system_tools import (
@@ -103,7 +108,24 @@ TOOLS = {
     "function": close_app,
     "description": "Close a running application",
     "parameters": ["app_name"]
-}
+},
+"take_screenshot": {
+    "function": take_screenshot,
+    "description": "Take a screenshot",
+    "parameters": []
+},
+
+"open_latest_screenshot": {
+    "function": open_latest_screenshot,
+    "description": "Open the latest screenshot",
+    "parameters": []
+},
+
+"timed_screenshot": {
+    "function": timed_screenshot,
+    "description": "Take a screenshot after delay",
+    "parameters": ["seconds"]
+},
 
 }
 
@@ -190,6 +212,10 @@ Examples:
 }
 {
   "tool":"close_app",
+  "parameters":{}
+}
+{
+  "tool":"take_screenshot",
   "parameters":{}
 }
 Available tools:
