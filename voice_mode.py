@@ -1,13 +1,22 @@
-# voice_mode.py
-
 from voice.stt import listen
 from voice.tts import speak
-from gui.gui_manager import set_state
 
-from agent.llm import ask_llm
-from agent.router import execute_tool
-from agent.analyzer import analyze_result
-from gui.gui_manager import go_to_sleep
+from gui.gui_manager import (
+    set_state,
+    go_to_sleep
+)
+
+from agent.planner import (
+    create_plan
+)
+
+from agent.executor import (
+    execute_plan
+)
+
+from agent.analyzer import (
+    analyze_result
+)
 
 
 def run_voice_mode():
@@ -24,14 +33,17 @@ def run_voice_mode():
 
             missed_listens += 1
 
-            # roughly 10 seconds if listen timeout is 10 sec
             if missed_listens >= 3:
-                set_state("sleeping")
-                
+
+                set_state(
+                    "sleeping"
+                )
 
                 go_to_sleep()
 
-                speak("Going to sleep")
+                speak(
+                    "Going to sleep"
+                )
 
                 return
 
@@ -40,34 +52,77 @@ def run_voice_mode():
         missed_listens = 0
 
         if "exit" in user_command.lower():
-            print("EXIT DETECTED")
+
+            print(
+                "EXIT DETECTED"
+            )
+
             go_to_sleep()
+
             return
 
         try:
-            set_state("thinking")
 
-            llm_response = ask_llm(user_command)
-            print("\nLLM RESPONSE:")
-            print(llm_response)
+            set_state(
+                "thinking"
+            )
 
-            tool_result = execute_tool(llm_response)
-            print("\nTOOL RESULT:")
-            print(tool_result)
+            plan = create_plan(
+                user_command
+            )
+
+            print(
+                "\nPLAN:"
+            )
+
+            print(
+                plan
+            )
+
+            results = execute_plan(
+                plan
+            )
+
+            print(
+                "\nRESULTS:"
+            )
+
+            print(
+                results
+            )
 
             final_answer = analyze_result(
                 user_command,
-                tool_result
+                results
             )
-            set_state("speaking")
 
-            speak(final_answer)
-            set_state("listening")
+            set_state(
+                "speaking"
+            )
+
+            speak(
+                final_answer
+            )
+
+            set_state(
+                "listening"
+            )
 
         except Exception as e:
 
-            print("Error:", e)
-            set_state("speaking")
+            print(
+                "Error:",
+                e
+            )
 
-            speak("Sorry, something went wrong.")
-            set_state("listening")
+            set_state(
+                "speaking"
+            )
+
+            speak(
+                "Sorry, something went wrong."
+            )
+
+            set_state(
+                "listening"
+            )

@@ -3,12 +3,14 @@ import edge_tts
 import tempfile
 import pygame
 import os
+import nest_asyncio
 
 
 VOICE = "en-US-GuyNeural"
 
 
 def speak(text):
+    nest_asyncio.apply()
 
     async def generate():
 

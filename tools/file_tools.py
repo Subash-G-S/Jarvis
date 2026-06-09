@@ -59,3 +59,17 @@ def rename_file(old_name, new_name):
                 return f"Renamed {old_name} to {new_name}"
 
     return "File not found."
+from services.file_memory import (
+    get_last_file
+)
+
+
+def get_last_generated_file():
+
+    filepath = get_last_file()
+
+    if not filepath:
+
+        return "No file available."
+
+    return filepath

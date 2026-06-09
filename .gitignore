@@ -6,7 +6,27 @@ __pycache__/
 
 # Virtual Environment
 venv/
+.env/
+
+# Environment Variables
 .env
+
+# Database
+*.db
+*.sqlite3
+
+# Outputs
+outputs/
+*.xlsx
+*.csv
+*.pdf
+
+# Audio
+*.mp3
+*.wav
+
+# Logs
+*.log
 
 # VS Code
 .vscode/
@@ -14,34 +34,17 @@ venv/
 # PyCharm
 .idea/
 
-# Build files
-build/
-dist/
-*.spec
+# OS Files
+.DS_Store
+Thumbs.db
 
-# Logs
-*.log
+# Playwright
+playwright-report/
+test-results/
 
-# Screenshots
-screenshots/
+# Cache
+.cache/
 
 # Temporary files
 temp/
 tmp/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# SQLite
-*.db
-
-# Environment variables
-.env
-
-# Audio files
-*.mp3
-*.wav
-
-# Generated cache
-cache/

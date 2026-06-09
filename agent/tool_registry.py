@@ -5,7 +5,33 @@ from tools.file_tools import (
     create_folder,
     create_file,
     delete_file,
-    rename_file
+    rename_file,
+    get_last_generated_file
+)
+from tools.email_tools import email_last_file
+from tools.search_tools import (
+    web_search
+)
+from tools.excel_tools import (
+    create_excel
+)
+
+from tools.browser_tools import (
+    search_web
+)
+from tools.preferences_tools import (
+    set_preference,
+    get_preference,
+    delete_preference
+)
+from tools.notes_tools import (
+    add_note,
+    show_notes
+)
+from tools.memory_db_tools import (
+    remember,
+    recall_memory,
+    show_memories
 )
 from tools.brightness_tools import (
     get_brightness,
@@ -24,6 +50,11 @@ from tools.clipboard_tools import (
     copy_to_clipboard,
     clear_clipboard,
     get_clipboard_history
+)
+from tools.task_tools import (
+    create_task,
+    show_tasks,
+    mark_task_complete
 )
 from tools.window_tools import (
     minimize_window,
@@ -265,6 +296,88 @@ TOOLS = {
     "description": "Play previous song",
     "parameters": []
 },
+"remember": {
+    "function": remember,
+    "description": "Store information in long term memory",
+    "parameters": ["key", "value"]
+},
+
+"recall_memory": {
+    "function": recall_memory,
+    "description": "Recall information from memory",
+    "parameters": ["key"]
+},
+
+"show_memories": {
+    "function": show_memories,
+    "description": "Show all stored memories",
+    "parameters": []
+},
+"add_note": {
+    "function": add_note,
+    "description": "Save a note to the notes database",
+    "parameters": ["note"]
+},
+
+"show_notes": {
+    "function": show_notes,
+    "description": "Show all saved notes",
+    "parameters": []
+},
+"create_task": {
+    "function": create_task,
+    "description": "Create a new task",
+    "parameters": ["task"]
+},
+
+"show_tasks": {
+    "function": show_tasks,
+    "description": "Show all tasks",
+    "parameters": []
+},
+
+"mark_task_complete": {
+    "function": mark_task_complete,
+    "description": "Mark a task as completed",
+    "parameters": ["task"]
+},
+"set_preference": {
+    "function": set_preference,
+    "description": "Save a user preference",
+    "parameters": ["key", "value"]
+},
+
+"get_preference": {
+    "function": get_preference,
+    "description": "Get a user preference",
+    "parameters": ["key"]
+},
+
+"delete_preference": {
+    "function": delete_preference,
+    "description": "Delete a user preference",
+    "parameters": ["key"]
+},
+"web_search": {
+    "function": web_search,
+    "description": "Search the web using Exa AI",
+    "parameters": ["query"]
+},
+"create_excel": {
+    "function": create_excel,
+    "description": "Create Excel file from context results",
+    "parameters": ["filename"]
+},
+"get_last_generated_file": {
+    "function": get_last_generated_file,
+    "description": "Get last generated file path",
+    "parameters": []
+},
+"email_last_file": {
+    "function": email_last_file,
+    "description": "Email the last generated file",
+    "parameters": ["recipient"]
+}
 
 
 }
@@ -358,6 +471,16 @@ Examples:
   "tool":"take_screenshot",
   "parameters":{}
 }
+{
+    "tool":"search_web",
+    "parameters":{
+      "query":"machine learning internships"
+    }
+  },
+  {
+    "tool":"create_excel",
+    "parameters":{}
+  }
 
 Available tools:
 
